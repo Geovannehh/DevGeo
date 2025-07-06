@@ -1,0 +1,246 @@
+/* Definição de variáveis de cor e reset básico */
+:root {
+    --cor-primaria: #6A0DAD; /* Roxo principal */
+    --cor-secundaria: #333;
+    --cor-fundo: #f4f4f4;
+    --cor-texto: #333;
+    --cor-branco: #ffffff;
+    --cor-sombra: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url(assets/fundo/img-fundo.png);
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave ao clicar nos links do menu */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Estilos do Cabeçalho */
+header {
+    background: var(--cor-primaria) ;
+    color: var(--cor-branco);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+header .foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Deixa a foto redonda */
+    border: 4px solid var(--cor-primaria);
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.frase-representativa {
+    font-style: italic;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos da Navegação */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: var(--cor-branco);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--cor-primaria);
+}
+
+/* Estilos das Seções Principais */
+main section {
+    padding: 3rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--cor-secundaria);
+    position: relative;
+}
+
+/* Linha decorativa abaixo do H2 */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--cor-primaria);
+    margin: 8px auto 0;
+}
+
+/* Seção Habilidades */
+.lista-habilidades {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.lista-habilidades li {
+    background: var(--cor-primaria);
+    color: var(--cor-branco);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Seção Projetos */
+.projetos-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.projeto-card {
+    background: var(--cor-branco);
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--cor-sombra);
+    text-align: center;
+    flex: 1; /* Faz os cards ocuparem o espaço igualmente */
+    min-width: 280px; /* Largura mínima para cada card */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.projeto-card:hover {
+    transform: translateY(-5px); /* Efeito de elevação */
+    box-shadow: 0 8px 16px var(--cor-sombra);
+}
+
+.projeto-card h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+}
+
+.btn-projeto {
+    display: inline-block;
+    background: var(--cor-secundaria);
+    color: var(--cor-branco);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-projeto:hover {
+    background: #555;
+}
+
+/* Estilos do Aside */
+aside {
+    background: #e9e9e9;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+aside h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+}
+
+aside ul {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+aside ul li {
+    margin-bottom: 0.5rem;
+}
+
+aside a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+}
+aside a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos do Rodapé */
+footer {
+    background: var(--cor-secundaria);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+footer a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.direitos-autorais {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+
+/* --- Media Query para Responsividade --- */
+/* Para telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul li {
+        display: block; /* Links um abaixo do outro */
+        margin: 10px 0;
+    }
+    
+    .projetos-container {
+        flex-direction: column; /* Empilha os projetos */
+        align-items: center;
+    }
+
+    .projeto-card {
+        width: 90%;
+        max-width: 400px;
+    }
+}
